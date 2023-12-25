@@ -47,6 +47,7 @@ public class BinaryTree {
         System.out.printf("%d는 현재 BT에 존재하지 않음\n",number);
     }
 
+
     private void arrExtends(int length) {
         this.BT = Arrays.copyOf(this.BT, length);
     }
