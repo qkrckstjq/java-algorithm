@@ -1,10 +1,12 @@
 package BinaryTree;
 
+import Utils.ArrayUtils;
 import java.util.Arrays;
 
 public class BinaryTree {
     private int defaultSize = 10;
     private Integer[] BT;
+    private ArrayUtils<Integer> intArrayUtils = new ArrayUtils<>();
     public BinaryTree() {
         this.BT = new Integer[defaultSize];
         this.BT[0] = null;
@@ -27,7 +29,7 @@ public class BinaryTree {
 
         // 배열 크기가 부족하면 확장
         if (currentIndex >= BT.length) {
-            arrExtends(BT.length * 2);
+            this.BT = intArrayUtils.arrExtends(this.BT, BT.length * 2);
         }
     }
 
@@ -46,12 +48,6 @@ public class BinaryTree {
         }
         System.out.printf("%d는 현재 BT에 존재하지 않음\n",number);
     }
-
-
-    private void arrExtends(int length) {
-        this.BT = Arrays.copyOf(this.BT, length);
-    }
-
     public Integer[] getBT() {
         return BT;
     }
