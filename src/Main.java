@@ -25,22 +25,13 @@ public class Main {
 //        System.out.println(Arrays.toString(BT.getBT()));
         PriorityQueue PQ = new PriorityQueue();
         PQ.insert(1);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(5);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(6);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(16);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(81);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(91);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(451);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(631);
-        System.out.println(Arrays.toString(PQ.getPQ()));
         PQ.insert(12);
-        System.out.println(Arrays.toString(PQ.getPQ()));
     }
 }
