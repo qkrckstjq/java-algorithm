@@ -1,4 +1,6 @@
-import ;
+import PriorityQueue.PriorityQueue;
+
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +24,23 @@ public class Main {
 //        BT.findValueIndex(123);  //123은 60번째 인덱스에 위치함
 //        System.out.println(Arrays.toString(BT.getBT()));
         PriorityQueue PQ = new PriorityQueue();
-
+        PQ.insert(1);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(5);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(6);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(16);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(81);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(91);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(451);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(631);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.insert(12);
+        System.out.println(Arrays.toString(PQ.getPQ()));
     }
 }
