@@ -18,7 +18,6 @@ public class PriorityQueue {
         if(lastNode >= PQ.length) {
             PQ = intArrayUtils.arrExtends(PQ, PQ.length * 2);
         }
-        System.out.println(lastNode);
         PQ[lastNode] = number;
         if(lastNode == 1) {
             lastNode++;
@@ -46,9 +45,6 @@ public class PriorityQueue {
         int parentNode = getParentNode(node);
         while(parentNode >= 1) {
             if(PQ[node] > PQ[parentNode]) {
-//                int temp = PQ[node];
-//                PQ[node] = PQ[parentNode];
-//                PQ[parentNode] = temp;
                 intArrayUtils.swap(PQ, node, parentNode);
                 node = parentNode;
                 parentNode = getParentNode(node);
@@ -87,16 +83,6 @@ public class PriorityQueue {
             return 0;
         }
 
-//        if(PQ[leftChildNode] != null && PQ[rightChildNode] == null && PQ[leftChildNode] > PQ[node]) {
-//            return 1;
-//        } else if (PQ[leftChildNode] != null && PQ[rightChildNode] == null && PQ[leftChildNode] < PQ[node]) {
-//            return 0;
-//        }
-//        if(PQ[leftChildNode] == null && PQ[rightChildNode] != null && PQ[rightChildNode] > PQ[node]) {
-//            return 2;
-//        } else if (PQ[leftChildNode] == null && PQ[rightChildNode] != null && PQ[rightChildNode] < PQ[node]) {
-//            return 0;
-//        }
         if(rightChildNode > lastNode && PQ[node] < PQ[leftChildNode]) {
             return 1;
         } else if (rightChildNode > lastNode && PQ[node] > PQ[leftChildNode]) {
