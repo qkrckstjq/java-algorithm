@@ -33,5 +33,15 @@ public class Main {
         PQ.insert(451);
         PQ.insert(631);
         PQ.insert(12);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
     }
 }

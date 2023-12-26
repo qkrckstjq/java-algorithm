@@ -35,10 +35,12 @@ public class PriorityQueue {
     }
     public int removePeek () {
         int max = PQ[1];
+        lastNode--;
         PQ[1] = PQ[lastNode];
         PQ[lastNode] = null;
-        lastNode--;
+
         whenRemovePeek(1);
+        return max;
     }
     private void sorting (int node) {
         int parentNode = getParentNode(node);
@@ -71,37 +73,51 @@ public class PriorityQueue {
                 intArrayUtils.swap(PQ, node, rightChildNode);
                 node = node * 2 + 1;
             }
-            if(nodeCase == 3) {
-                intArrayUtils.swap(PQ, node, leftChildNode);
-                node = node * 2;
-            }
-            if(nodeCase == 4) {
-                intArrayUtils.swap(PQ, node, rightChildNode);
-                node = node * 2 + 1;
-            }
         }
 
     }
     private int caseSelector (int node) {
-        int now = PQ[node];
-        int leftChild = PQ[node * 2];
-        int rightChild = PQ[node * 2 + 1];
-        if(now >= leftChild && now >= rightChild) {
+        int leftChildNode = node * 2;
+        int rightChildNode = node * 2 + 1;
+
+        if(rightChildNode >= lastNode) {
             return 0;
         }
-        if (now < leftChild && now < rightChild && leftChild > rightChild ) {   //왼쪽 자식 노드와 교체
+        if(PQ[node] >= PQ[leftChildNode] && PQ[node] >= PQ[rightChildNode]) {
+            return 0;
+        }
+
+//        if(PQ[leftChildNode] != null && PQ[rightChildNode] == null && PQ[leftChildNode] > PQ[node]) {
+//            return 1;
+//        } else if (PQ[leftChildNode] != null && PQ[rightChildNode] == null && PQ[leftChildNode] < PQ[node]) {
+//            return 0;
+//        }
+//        if(PQ[leftChildNode] == null && PQ[rightChildNode] != null && PQ[rightChildNode] > PQ[node]) {
+//            return 2;
+//        } else if (PQ[leftChildNode] == null && PQ[rightChildNode] != null && PQ[rightChildNode] < PQ[node]) {
+//            return 0;
+//        }
+        if(rightChildNode > lastNode && PQ[node] < PQ[leftChildNode]) {
+            return 1;
+        } else if (rightChildNode > lastNode && PQ[node] > PQ[leftChildNode]) {
+            return 0;
+        }
+
+        if (PQ[node] < PQ[leftChildNode] && PQ[node] < PQ[rightChildNode] && PQ[leftChildNode] > PQ[rightChildNode]) {
             return 1;
         }
-        if (now < leftChild && now < rightChild && leftChild < rightChild ) {   //오른쪽 자식 노드와 교체
+        if (PQ[node] < PQ[leftChildNode] && PQ[node] < PQ[rightChildNode] && PQ[leftChildNode] < PQ[rightChildNode]) {
             return 2;
         }
-        if (now < leftChild && now > rightChild) {  //왼쪽 자식 노드와 교체
-            return 3;
+
+
+        if (PQ[node] < PQ[leftChildNode] && PQ[node] > PQ[rightChildNode]) {
+            return 1;
         }
-        if (now > leftChild && now < rightChild) {  //오른쪽 자식 노드와 교체
-            return 4;
+        if (PQ[node] > PQ[leftChildNode] && PQ[node] < PQ[rightChildNode]) {
+            return 2;
         }
-        return 5;
+        return 0;
     }
     private int getParentNode (int node) {
         if(node % 2 == 0) {
