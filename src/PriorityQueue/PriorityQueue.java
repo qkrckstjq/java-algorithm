@@ -96,7 +96,6 @@ public class PriorityQueue {
             return 2;
         }
 
-
         if (PQ[node] < PQ[leftChildNode] && PQ[node] > PQ[rightChildNode]) {
             return 1;
         }

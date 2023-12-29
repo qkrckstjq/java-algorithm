@@ -12,4 +12,9 @@ public class ArrayUtils<T> {
         arr[base] = arr[next];
         arr[next] = temp;
     }
+    public static void swap (int[] arr, int base, int next) {
+        int temp = arr[base];
+        arr[base] = arr[next];
+        arr[next] = temp;
+    }
 }

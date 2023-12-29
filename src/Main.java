@@ -1,4 +1,5 @@
 import PriorityQueue.PriorityQueue;
+import QuickSort.QuickSort;
 
 import java.util.Arrays;
 
@@ -23,25 +24,33 @@ public class Main {
 //        BT.insert(4868);
 //        BT.findValueIndex(123);  //123은 60번째 인덱스에 위치함
 //        System.out.println(Arrays.toString(BT.getBT()));
-        PriorityQueue PQ = new PriorityQueue();
-        PQ.insert(1);
-        PQ.insert(5);
-        PQ.insert(6);
-        PQ.insert(16);
-        PQ.insert(81);
-        PQ.insert(91);
-        PQ.insert(451);
-        PQ.insert(631);
-        PQ.insert(12);
-        System.out.println(Arrays.toString(PQ.getPQ()));
-        PQ.removePeek();
-        System.out.println(Arrays.toString(PQ.getPQ()));
-        PQ.removePeek();
-        System.out.println(Arrays.toString(PQ.getPQ()));
-        PQ.removePeek();
-        System.out.println(Arrays.toString(PQ.getPQ()));
-        PQ.removePeek();
-        System.out.println(Arrays.toString(PQ.getPQ()));
-        PQ.removePeek();
+// ------------------------------------------------------------
+
+//        PriorityQueue PQ = new PriorityQueue();
+//        PQ.insert(1);
+//        PQ.insert(5);
+//        PQ.insert(6);
+//        PQ.insert(16);
+//        PQ.insert(81);
+//        PQ.insert(91);
+//        PQ.insert(451);
+//        PQ.insert(631);
+//        PQ.insert(12);
+//        System.out.println(Arrays.toString(PQ.getPQ()));
+//        PQ.removePeek();
+//        System.out.println(Arrays.toString(PQ.getPQ()));
+//        PQ.removePeek();
+//        System.out.println(Arrays.toString(PQ.getPQ()));
+//        PQ.removePeek();
+//        System.out.println(Arrays.toString(PQ.getPQ()));
+//        PQ.removePeek();
+//        System.out.println(Arrays.toString(PQ.getPQ()));
+//        PQ.removePeek();
+// ----------------------------------------------------
+//        int[] arr = {1,3,2,51,12,3,6,2,4,7,78};
+        int[] arr = {5,4,1,2,3,6};
+        System.out.println("퀵솔트전 배열\n"+Arrays.toString(arr));
+        QuickSort.quickSort(arr);
+        System.out.println("퀵솔트후 배열\n"+Arrays.toString(arr));
     }
 }
