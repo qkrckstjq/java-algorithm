@@ -48,7 +48,8 @@ public class Main {
 //        PQ.removePeek();
 // ----------------------------------------------------
 //        int[] arr = {1,3,2,51,12,3,6,2,4,7,78};
-        int[] arr = {5,4,1,2,3,6};
+
+        int[] arr = {5,4,7,3,1,2};
         System.out.println("퀵솔트전 배열\n"+Arrays.toString(arr));
         QuickSort.quickSort(arr);
         System.out.println("퀵솔트후 배열\n"+Arrays.toString(arr));
