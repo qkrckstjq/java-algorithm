@@ -1,6 +1,5 @@
 import PriorityQueue.PriorityQueue;
 import QuickSort.QuickSort;
-
 import java.util.Arrays;
 
 public class Main {
@@ -51,7 +50,7 @@ public class Main {
 
         int[] arr = {5,4,7,3,1,2};
         System.out.println("퀵솔트전 배열\n"+Arrays.toString(arr));
-        QuickSort.quickSort(arr);
+        QuickSort.sort(arr);
         System.out.println("퀵솔트후 배열\n"+Arrays.toString(arr));
     }
 }

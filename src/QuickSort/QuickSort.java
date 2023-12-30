@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class QuickSort {
     private static final int START_INDEX = 0;
-    public static void quickSort (int[] arr) {
+    public static void sort (int[] arr) {
         recursion(arr, START_INDEX, arr.length-1);
     }
     public static void recursion (int[] arr, int startIndex, int endIndex) {
