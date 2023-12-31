@@ -26,26 +26,26 @@ public class Main {
 //        System.out.println(Arrays.toString(BT.getBT()));
 // ------------------------------------------------------------
 
-//        PriorityQueue PQ = new PriorityQueue();
-//        PQ.insert(1);
-//        PQ.insert(5);
-//        PQ.insert(6);
-//        PQ.insert(16);
-//        PQ.insert(81);
-//        PQ.insert(91);
-//        PQ.insert(451);
-//        PQ.insert(631);
-//        PQ.insert(12);
-//        System.out.println(Arrays.toString(PQ.getPQ()));
-//        PQ.removePeek();
-//        System.out.println(Arrays.toString(PQ.getPQ()));
-//        PQ.removePeek();
-//        System.out.println(Arrays.toString(PQ.getPQ()));
-//        PQ.removePeek();
-//        System.out.println(Arrays.toString(PQ.getPQ()));
-//        PQ.removePeek();
-//        System.out.println(Arrays.toString(PQ.getPQ()));
-//        PQ.removePeek();
+        PriorityQueue PQ = new PriorityQueue();
+        PQ.insert(1);
+        PQ.insert(5);
+        PQ.insert(6);
+        PQ.insert(16);
+        PQ.insert(81);
+        PQ.insert(91);
+        PQ.insert(451);
+        PQ.insert(631);
+        PQ.insert(12);
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
+        System.out.println(Arrays.toString(PQ.getPQ()));
+        PQ.removePeek();
 // ----------------------------------------------------
 //        int[] arr = {1,3,2,51,12,3,6,2,4,7,78};
 
@@ -55,9 +55,9 @@ public class Main {
 //        System.out.println("퀵솔트후 배열\n"+Arrays.toString(arr));
 
 //-------------------------------------------------------------
-        Integer[] arr = {5,4,7,3,1,2};
-        System.out.println("병합정렬전 배열\n"+Arrays.toString(arr));
-        MergeSort.sort(arr);
-        System.out.println("병합정렬후 배열\n"+Arrays.toString(arr));
+//        Integer[] arr = {5,4,7,3,1,2};
+//        System.out.println("병합정렬전 배열\n"+Arrays.toString(arr));
+//        MergeSort.sort(arr);
+//        System.out.println("병합정렬후 배열\n"+Arrays.toString(arr));
     }
 }

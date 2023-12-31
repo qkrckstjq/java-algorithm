@@ -4,16 +4,16 @@ import Utils.ArrayUtils;
 
 import java.util.Arrays;
 
-public class PriorityQueue {
+public class PriorityQueue<T extends Comparable<T>> {
     private int defaultSize = 10;
-    private Integer[] PQ;
+    private T[] PQ;
     private int lastNode;
     public PriorityQueue () {
-        this.PQ = new Integer[defaultSize];
+        this.PQ = (T[]) new Comparable[defaultSize];
         this.PQ[0] = null;
         this.lastNode = 1;
     }
-    public void insert (int number) {
+    public void insert (T number) {
         if(lastNode >= PQ.length) {
             PQ = ArrayUtils.arrExtends(PQ, PQ.length * 2);
         }
@@ -25,14 +25,14 @@ public class PriorityQueue {
         sorting(lastNode);
         lastNode++;
     }
-    public Integer[] getPQ () {
+    public T[] getPQ () {
         return PQ;
     }
-    public int getPeek () {
+    public T getPeek () {
         return PQ[1];
     }
-    public int removePeek () {
-        int max = PQ[1];
+    public T removePeek () {
+        T max = PQ[1];
         lastNode--;
         PQ[1] = PQ[lastNode];
         PQ[lastNode] = null;
@@ -43,7 +43,7 @@ public class PriorityQueue {
     private void sorting (int node) {
         int parentNode = getParentNode(node);
         while(parentNode >= 1) {
-            if(PQ[node] > PQ[parentNode]) {
+            if(PQ[node].compareTo(PQ[parentNode]) > 0) {
                 ArrayUtils.swap(PQ, node, parentNode);
                 node = parentNode;
                 parentNode = getParentNode(node);
@@ -78,27 +78,27 @@ public class PriorityQueue {
         if(rightChildNode >= lastNode) {
             return 0;
         }
-        if(PQ[node] >= PQ[leftChildNode] && PQ[node] >= PQ[rightChildNode]) {
+        if(PQ[node].compareTo(PQ[leftChildNode]) >= 0 && PQ[node].compareTo(PQ[rightChildNode]) >= 0) {
             return 0;
         }
 
-        if(rightChildNode > lastNode && PQ[node] < PQ[leftChildNode]) {
+        if(rightChildNode > lastNode && PQ[node].compareTo(PQ[leftChildNode]) < 0) {
             return 1;
-        } else if (rightChildNode > lastNode && PQ[node] > PQ[leftChildNode]) {
+        } else if (rightChildNode > lastNode && PQ[node].compareTo(PQ[leftChildNode]) > 0) {
             return 0;
         }
 
-        if (PQ[node] < PQ[leftChildNode] && PQ[node] < PQ[rightChildNode] && PQ[leftChildNode] > PQ[rightChildNode]) {
+        if (PQ[node].compareTo(PQ[leftChildNode]) < 0 && PQ[node].compareTo(PQ[rightChildNode]) < 0 && PQ[leftChildNode].compareTo(PQ[rightChildNode]) > 0) {
             return 1;
         }
-        if (PQ[node] < PQ[leftChildNode] && PQ[node] < PQ[rightChildNode] && PQ[leftChildNode] < PQ[rightChildNode]) {
+        if (PQ[node].compareTo(PQ[leftChildNode]) < 0 && PQ[node].compareTo(PQ[rightChildNode]) < 0 && PQ[leftChildNode].compareTo(PQ[rightChildNode]) < 0) {
             return 2;
         }
 
-        if (PQ[node] < PQ[leftChildNode] && PQ[node] > PQ[rightChildNode]) {
+        if (PQ[node].compareTo(PQ[leftChildNode]) < 0 && PQ[node].compareTo(PQ[rightChildNode]) > 0) {
             return 1;
         }
-        if (PQ[node] > PQ[leftChildNode] && PQ[node] < PQ[rightChildNode]) {
+        if (PQ[node].compareTo(PQ[leftChildNode]) > 0 && PQ[node].compareTo(PQ[rightChildNode]) < 0) {
             return 2;
         }
         return 0;
