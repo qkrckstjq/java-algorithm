@@ -1,4 +1,4 @@
-package MergeSort;
+package ArraySort;
 
 public class MergeSort<T extends Comparable<T>> {
     public static <T extends Comparable<T>> void sort (T[] arr) {

@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import BinaryTree.BinaryTreeArr;
-import BinaryTree.BinaryTreeClass;
+import ArraySort.BinaryTree.BinaryTreeClass;
 
 public class Main {
     public static void main(String[] args) {

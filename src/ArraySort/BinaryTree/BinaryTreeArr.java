@@ -1,4 +1,4 @@
-package BinaryTree;
+package ArraySort.BinaryTree;
 
 import Utils.ArrayUtils;
 

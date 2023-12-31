@@ -1,6 +1,4 @@
-package BinaryTree;
-
-import java.util.IllformedLocaleException;
+package ArraySort.BinaryTree;
 
 public class BinaryTreeClass <T extends Comparable<T>> {
     private T value;
