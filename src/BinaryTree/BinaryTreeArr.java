@@ -2,10 +2,11 @@ package BinaryTree;
 
 import Utils.ArrayUtils;
 
-public class BinaryTree<T extends Comparable<T>> {
+public class BinaryTreeArr<T extends Comparable<T>> {
     private int defaultSize = 10;
     private T[] BT;
-    public BinaryTree() {
+
+    public BinaryTreeArr() {
         this.BT = (T[]) new Comparable[defaultSize];
         this.BT[0] = null;
     }
