@@ -6,7 +6,6 @@ import java.util.Arrays;
 public class BinaryTree {
     private int defaultSize = 10;
     private Integer[] BT;
-    private ArrayUtils<Integer> intArrayUtils = new ArrayUtils<>();
     public BinaryTree() {
         this.BT = new Integer[defaultSize];
         this.BT[0] = null;
@@ -29,7 +28,7 @@ public class BinaryTree {
 
         // 배열 크기가 부족하면 확장
         if (currentIndex >= BT.length) {
-            this.BT = intArrayUtils.arrExtends(this.BT, BT.length * 2);
+            this.BT = ArrayUtils.arrExtends(this.BT, BT.length * 2);
         }
     }
 

@@ -4,12 +4,12 @@ import Utils.ArrayUtils;
 
 import java.util.Arrays;
 
-public class QuickSort {
+public class QuickSort<T extends Comparable<T>> {
     private static final int START_INDEX = 0;
-    public static void sort (int[] arr) {
+    public static <T extends Comparable<T>> void sort (T[] arr) {
         recursion(arr, START_INDEX, arr.length-1);
     }
-    public static void recursion (int[] arr, int startIndex, int endIndex) {
+    private static <T extends Comparable<T>> void recursion (T[] arr, int startIndex, int endIndex) {
         if(startIndex >= endIndex) {
             return;
         }
@@ -18,21 +18,21 @@ public class QuickSort {
         recursion(arr, pivot, endIndex);
     }
 
-    private static int partialSorting (int[] arr, int startIndex, int endIndex) {
+    private static <T extends Comparable<T>> int partialSorting (T[] arr, int startIndex, int endIndex) {
         int pivot = startIndex;
         startIndex++;
         while(startIndex < endIndex) {
-            while (startIndex < endIndex && arr[startIndex] < arr[pivot]) {
+            while (startIndex < endIndex && arr[startIndex].compareTo(arr[pivot]) < 0) {
                 startIndex++;
             }
-            while (startIndex < endIndex && arr[endIndex] > arr[pivot]) {
+            while (startIndex < endIndex && arr[endIndex].compareTo(arr[pivot]) > 0) {
                 endIndex--;
             }
             if (startIndex < endIndex) {
                 ArrayUtils.swap(arr, startIndex, endIndex);
             }
         }
-        if(arr[pivot] > arr[startIndex]) {
+        if(arr[pivot].compareTo(arr[startIndex]) > 0) {
             ArrayUtils.swap(arr, pivot, startIndex);
         }
         return endIndex;

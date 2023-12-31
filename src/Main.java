@@ -49,15 +49,15 @@ public class Main {
 // ----------------------------------------------------
 //        int[] arr = {1,3,2,51,12,3,6,2,4,7,78};
 
-//        int[] arr = {5,4,7,3,1,2};
-//        System.out.println("퀵솔트전 배열\n"+Arrays.toString(arr));
-//        QuickSort.sort(arr);
-//        System.out.println("퀵솔트후 배열\n"+Arrays.toString(arr));
+        Integer[] arr = {5,4,7,3,1,2};
+        System.out.println("퀵솔트전 배열\n"+Arrays.toString(arr));
+        QuickSort.sort(arr);
+        System.out.println("퀵솔트후 배열\n"+Arrays.toString(arr));
 
 //-------------------------------------------------------------
-        int[] arr = {5,4,7,3,1,2};
-        System.out.println("병합정렬전 배열\n"+Arrays.toString(arr));
-        int[] newArr = MergeSort.sort(arr);
-        System.out.println("병합정렬후 배열\n"+Arrays.toString(newArr));
+//        int[] arr = {5,4,7,3,1,2};
+//        System.out.println("병합정렬전 배열\n"+Arrays.toString(arr));
+//        int[] newArr = MergeSort.sort(arr);
+//        System.out.println("병합정렬후 배열\n"+Arrays.toString(newArr));
     }
 }

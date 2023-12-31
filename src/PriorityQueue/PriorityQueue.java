@@ -8,7 +8,6 @@ public class PriorityQueue {
     private int defaultSize = 10;
     private Integer[] PQ;
     private int lastNode;
-    private ArrayUtils<Integer> intArrayUtils = new ArrayUtils<>();
     public PriorityQueue () {
         this.PQ = new Integer[defaultSize];
         this.PQ[0] = null;
@@ -16,7 +15,7 @@ public class PriorityQueue {
     }
     public void insert (int number) {
         if(lastNode >= PQ.length) {
-            PQ = intArrayUtils.arrExtends(PQ, PQ.length * 2);
+            PQ = ArrayUtils.arrExtends(PQ, PQ.length * 2);
         }
         PQ[lastNode] = number;
         if(lastNode == 1) {
@@ -45,7 +44,7 @@ public class PriorityQueue {
         int parentNode = getParentNode(node);
         while(parentNode >= 1) {
             if(PQ[node] > PQ[parentNode]) {
-                intArrayUtils.swap(PQ, node, parentNode);
+                ArrayUtils.swap(PQ, node, parentNode);
                 node = parentNode;
                 parentNode = getParentNode(node);
             } else {
@@ -62,11 +61,11 @@ public class PriorityQueue {
                 return;
             }
             if(nodeCase == 1) {
-                intArrayUtils.swap(PQ, node, leftChildNode);
+                ArrayUtils.swap(PQ, node, leftChildNode);
                 node = node * 2;
             }
             if(nodeCase == 2) {
-                intArrayUtils.swap(PQ, node, rightChildNode);
+                ArrayUtils.swap(PQ, node, rightChildNode);
                 node = node * 2 + 1;
             }
         }
