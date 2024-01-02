@@ -1,4 +1,4 @@
-package ArraySort.BinaryTree;
+package BinaryTree;
 
 public class BinaryTreeClass <T extends Comparable<T>> {
     private T value;

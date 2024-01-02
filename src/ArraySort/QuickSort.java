@@ -1,4 +1,4 @@
-package QuickSort;
+package ArraySort;
 
 import Utils.ArrayUtils;
 
