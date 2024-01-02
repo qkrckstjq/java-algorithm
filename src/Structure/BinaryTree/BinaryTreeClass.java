@@ -1,4 +1,4 @@
-package BinaryTree;
+package Structure.BinaryTree;
 
 public class BinaryTreeClass <T extends Comparable<T>> {
     private T value;

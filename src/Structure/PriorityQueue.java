@@ -1,4 +1,4 @@
-package PriorityQueue;
+package Structure;
 
 import Utils.ArrayUtils;
 
