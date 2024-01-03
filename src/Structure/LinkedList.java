@@ -1,100 +1,120 @@
 package Structure;
 
-public class LinkedList <T> {
-    Node<T> head;
-    Node<T> tail;
-    int size;
-    public LinkedList () {
+public class LinkedList<T> {
+    private Node<T> head;
+    private Node<T> tail;
+    private int size;
+
+    public LinkedList() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
-    public void add (T data) {
-        if(size == 0) {
-            this.head = new Node<T>(data);
-            this.tail = this.head;
+
+    public void add(T data) {
+        Node<T> newNode = new Node<>(data);
+        if (size == 0) {
+            head = tail = newNode;
         } else {
-            Node<T> previousNode = this.tail;
-            this.tail = new Node<T>(data);
-            previousNode.updateNext(this.tail);
+            tail.updateNext(newNode);
+            tail = newNode;
         }
-        this.size++;
+        size++;
     }
-    public void insert (T data, T previousData) throws IllegalArgumentException {
+
+    public void insert(T data, T previousData) {
         Node<T> previousNode = findNode(previousData);
         if (previousNode == null) {
             throw new IllegalArgumentException("삽입하고자 하는 위치 존재하지 않음");
         }
-        if (size == 0) {
-            throw new IllegalArgumentException("삽입하고자 하는 위치 존재하지 않음");
-        }
+
         Node<T> newNode = new Node<>(data);
-        Node<T> temp = previousNode.getNext();
+        newNode.updateNext(previousNode.getNext());
         previousNode.updateNext(newNode);
-        newNode.updateNext(temp);
-        this.size++;
+
+        if (previousNode == tail) {
+            tail = newNode;
+        }
+
+        size++;
     }
-    public void delete(T data) throws IllegalArgumentException {
+
+    public void delete(T data) {
         if (size == 0) {
             throw new IllegalArgumentException("리스트 비어있음");
         }
+
         if (head.getData().equals(data)) {
             head = head.getNext();
             size--;
+            if (size == 0) {
+                tail = null;
+            }
             return;
         }
+
         Node<T> currentNode = head;
         while (currentNode.getNext() != null && !currentNode.getNext().getData().equals(data)) {
             currentNode = currentNode.getNext();
         }
+
         if (currentNode.getNext() == null) {
             throw new IllegalArgumentException("찾는 값 없음");
         }
+
         if (currentNode.getNext() == tail) {
             tail = currentNode;
         }
+
         currentNode.updateNext(currentNode.getNext().getNext());
         size--;
     }
-    public Node<T> findNode (T data) throws IllegalArgumentException{
-        if(size == 0) {
+
+    public Node<T> findNode(T data) {
+        if (size == 0) {
             throw new IllegalArgumentException("리스트 비어있음");
         }
-        Node<T> findNode = this.head;
-        while(!findNode.getData().equals(data) && findNode != null) {
+
+        Node<T> findNode = head;
+        while (findNode != null && !findNode.getData().equals(data)) {
             findNode = findNode.getNext();
-            if(findNode == null) {
-                return null;
-            }
         }
+
         return findNode;
     }
-    public void printAllNodeData () {
-        Node<T> node = this.head;
-        String result = "";
-        while(node != null) {
-            result+=node.data + " -> ";
+
+    public void printAllNodeData() {
+        Node<T> node = head;
+        StringBuilder result = new StringBuilder();
+        while (node != null) {
+            result.append(node.getData()).append(" -> ");
             node = node.getNext();
         }
-        System.out.println(result);
+        System.out.println(result.toString());
     }
-    private static class Node <T> {
+
+    private static class Node<T> {
         private T data;
         private Node<T> next;
-        public Node (T data) {
+
+        public Node(T data) {
             updateData(data);
             updateNext(null);
         }
-        public void updateNext (Node<T> node) {
+
+        public void updateNext(Node<T> node) {
             this.next = node;
         }
-        public void updateData (T data) {
+
+        public void updateData(T data) {
             this.data = data;
         }
-        public T getData () {
+
+        public T getData() {
             return this.data;
         }
-        public Node<T> getNext () {
+
+        public Node<T> getNext() {
             return this.next;
         }
     }
