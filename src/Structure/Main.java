@@ -69,13 +69,26 @@ public class Main {
 //        System.out.println(Arrays.toString(PQ.getPQ()));
 //        PQ.removePeek();
 // ----------------------------------------------------
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.push(5);
-        linkedList.push(45);
-        linkedList.printAllNodeData();
-        linkedList.pop();
-        linkedList.pop();
-        linkedList.pop();
-        linkedList.printAllNodeData();
+//        LinkedList<Integer> linkedList = new LinkedList<>();
+//        linkedList.push(5);
+//        linkedList.push(45);
+//        linkedList.printAllNodeData();
+//        linkedList.pop();
+//        linkedList.pop();
+//        linkedList.pop();
+//        linkedList.printAllNodeData();
+//------------------------------------------------------
+        Tree<Integer> root = new Tree<>(1,1);
+        Tree.addChildren(root,2);
+        Tree.addChildren(root,6);
+        Tree.addChildren(root,62);
+        Tree.addChildren(root,72);
+        Tree.addChildren(Tree.findDfs(root, 6), 51);
+        Tree.addChildren(Tree.findDfs(root, 6), 511);
+        Tree.addChildren(Tree.findDfs(root, 6), 5116);
+        Tree.addChildren(Tree.findDfs(root, 51), 5123116);
+        Tree<Integer> findNode = Tree.findDfs(root, 5116);
+        Tree<Integer> findNode2 = Tree.findDfs(root, 5123116);
+
     }
 }
