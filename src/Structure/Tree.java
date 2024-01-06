@@ -18,13 +18,34 @@ public class Tree <T>{
     public static <T> Tree<T> findDfs (Tree<T> root, T data) {
         LinkedList<Tree<T>> stack = new LinkedList<>();
         stack.push(root);
+
         while(!stack.isEmpty()) {
-            Tree cur = stack.pop();
+            Tree<T> cur = stack.pop();
             if(cur.data.equals(data)) {
                 return cur;
             }
             for(Tree children : cur.childrens) {
                 stack.push(children);
+            }
+        }
+        throw new IllegalArgumentException("찾는값 이 존재 하지 않음");
+    }
+    public static <T> void findRoute (Tree<T> root, T data) {
+        LinkedList<Tree<T>> stack = new LinkedList<>();
+        LinkedList<StringBuilder> stackResult = new LinkedList<>();
+        stack.push(root);
+        stackResult.push(new StringBuilder(root.data.toString()));
+
+        while(!stack.isEmpty()) {
+            Tree<T> cur = stack.pop();
+            StringBuilder curResult = stackResult.pop();
+            if(cur.data.equals(data)) {
+                System.out.println(curResult);
+                return;
+            }
+            for(Tree children : cur.childrens) {
+                stack.push(children);
+                stackResult.push(new StringBuilder(String.format("%s -> %d", curResult, (int) children.data)));
             }
         }
         throw new IllegalArgumentException("찾는값 이 존재 하지 않음");

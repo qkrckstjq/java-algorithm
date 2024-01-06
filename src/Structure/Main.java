@@ -87,8 +87,8 @@ public class Main {
         Tree.addChildren(Tree.findDfs(root, 6), 511);
         Tree.addChildren(Tree.findDfs(root, 6), 5116);
         Tree.addChildren(Tree.findDfs(root, 51), 5123116);
-        Tree<Integer> findNode = Tree.findDfs(root, 5116);
-        Tree<Integer> findNode2 = Tree.findDfs(root, 5123116);
-
+//        Tree<Integer> findNode = Tree.findDfs(root, 5116);
+//        Tree<Integer> findNode2 = Tree.findDfs(root, 5123116);
+        Tree.findRoute(root, 5123116);
     }
 }
