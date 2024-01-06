@@ -70,19 +70,12 @@ public class Main {
 //        PQ.removePeek();
 // ----------------------------------------------------
         LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(5);
-        linkedList.add(45);
-        linkedList.add(5136);
-        linkedList.add(865);
-        linkedList.add(545);
-        linkedList.add(5123);
-        linkedList.add(554);
-        linkedList.add(5423);
+        linkedList.push(5);
+        linkedList.push(45);
         linkedList.printAllNodeData();
-
-        linkedList.insert(1111, 5123);
-        linkedList.printAllNodeData();
-        linkedList.delete(1111);
+        linkedList.pop();
+        linkedList.pop();
+        linkedList.pop();
         linkedList.printAllNodeData();
     }
 }
