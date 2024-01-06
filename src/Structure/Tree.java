@@ -30,7 +30,7 @@ public class Tree <T>{
         }
         throw new IllegalArgumentException("찾는값 이 존재 하지 않음");
     }
-    public static <T> void findRoute (Tree<T> root, T data) {
+    public static <T> void printRoute (Tree<T> root, T data) {
         LinkedList<Tree<T>> stack = new LinkedList<>();
         LinkedList<StringBuilder> stackResult = new LinkedList<>();
         stack.push(root);
@@ -50,11 +50,32 @@ public class Tree <T>{
         }
         throw new IllegalArgumentException("찾는값 이 존재 하지 않음");
     }
-//    public T getData () {
-//        return this.data;
-//    }
-//    public Tree[] getChildren () {
-//        return this.childrens;
-//    }
+    public static <T> void printLevels (Tree<T> root) {
+        LinkedList<Tree<T>> queue = new LinkedList<>();
+        LinkedList<Integer> depthQueue = new LinkedList<>();
+
+        queue.push(root);
+        depthQueue.push(root.depth);
+
+        int currentDepth = 1;
+
+        while (!queue.isEmpty()) {
+            Tree<T> current = queue.shift();
+            int currentDepthFromQueue = depthQueue.shift();
+
+            if (currentDepthFromQueue != currentDepth) {
+                System.out.println();  // Move to the next line after printing each level
+                currentDepth = currentDepthFromQueue;
+            }
+
+            System.out.print(current.data + " ");
+
+            // Enqueue child nodes in order to maintain BFS
+            for (Tree<T> child : current.childrens) {
+                queue.push(child);
+                depthQueue.push(currentDepth + 1);
+            }
+        }
+    }
 }
 

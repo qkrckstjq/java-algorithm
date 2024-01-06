@@ -71,7 +71,23 @@ public class LinkedList<T> {
 //        currentNode.updateNext(currentNode.next.next);
 //        size--;
 //    }
-
+    public T shift () {
+        T result;
+        if (size == 0) {
+            throw new IllegalArgumentException("리스트 비어있음");
+        } else if (size == 1){
+            result = head.data;
+            head = null;
+            tail = null;
+            size--;
+            return result;
+        } else {
+            result = head.data;
+            head = head.next;
+            size--;
+            return result;
+        }
+    }
     public T pop () {
         T result;
         if (size == 0) {
