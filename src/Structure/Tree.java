@@ -4,16 +4,28 @@ import Utils.ArrayUtils;
 
 public class Tree <T>{
     private T data;
+    private Tree<T> parents;
     private Tree<T>[] childrens;
     private int depth;
-    public Tree (T data, int number) {
+
+    public Tree (T data, int startDepth, Tree<T> parents) {
+        this.parents = parents;
         this.data = data;
         this.childrens = new Tree[0];
-        this.depth = number;
+        this.depth = startDepth;
+    }
+    public Tree (T data, int startDepth) {
+        this.data = data;
+        this.childrens = new Tree[0];
+        this.depth = startDepth;
+    }
+    public void addChildren (T data) {
+        this.childrens = ArrayUtils.arrExtends(this.childrens, this.childrens.length+1);
+        this.childrens[this.childrens.length-1] = new Tree<T>(data, this.depth+1, this);
     }
     public static <T> void addChildren (Tree<T> node,T data) {
         node.childrens = ArrayUtils.arrExtends(node.childrens, node.childrens.length+1);
-        node.childrens[node.childrens.length-1] = new Tree<T>(data, node.depth+1);
+        node.childrens[node.childrens.length-1] = new Tree<T>(data, node.depth+1, node);
     }
     public static <T> Tree<T> findDfs (Tree<T> root, T data) {
         LinkedList<Tree<T>> stack = new LinkedList<>();
@@ -26,6 +38,21 @@ public class Tree <T>{
             }
             for(Tree children : cur.childrens) {
                 stack.push(children);
+            }
+        }
+        throw new IllegalArgumentException("찾는값 이 존재 하지 않음");
+    }
+    public static <T> Tree<T> findBfs (Tree<T> root, T data) {
+        LinkedList<Tree<T>> queue = new LinkedList<>();
+        queue.push(root);
+
+        while(!queue.isEmpty()) {
+            Tree<T> cur = queue.shift();
+            if(cur.data.equals(data)) {
+                return cur;
+            }
+            for(Tree children : cur.childrens) {
+                queue.push(children);
             }
         }
         throw new IllegalArgumentException("찾는값 이 존재 하지 않음");
@@ -76,6 +103,10 @@ public class Tree <T>{
                 depthQueue.push(currentDepth + 1);
             }
         }
+    }
+
+    public T getData () {
+        return data;
     }
 }
 

@@ -23,8 +23,75 @@ public class LinkedList<T> {
         }
         size++;
     }
+    public T shift () {
+        T result;
+        if (size == 0) {
+            throw new IllegalArgumentException("리스트 비어있음");
+        } else if (size == 1){
+            result = head.data;
+            head = null;
+            tail = null;
+            size--;
+            return result;
+        } else {
+            result = head.data;
+            head = head.next;
+            size--;
+            return result;
+        }
+    }
+    public T pop () {
+        T result;
+        if (size == 0) {
+            throw new IllegalArgumentException("리스트 비어있음");
+        } else if (size == 1){
+            result = tail.data;
+            head = null;
+            tail = null;
+            size--;
+            return result;
+        } else {
+            result = tail.data;
+            tail = tail.prev;
+            tail.next = null;
+            size--;
+            return result;
+        }
+    }
+    public boolean isEmpty () {
+        return size == 0;
+    }
 
-//    public void insert(T data, T previousData) {
+
+    public void printAllNodeData() {
+        Node<T> node = head;
+        StringBuilder result = new StringBuilder();
+        while (node != null) {
+            result.append(node.data).append(" -> ");
+            node = node.next;
+        }
+        System.out.println(result.toString());
+    }
+
+    private static class Node<T> {
+        private T data;
+        private Node<T> prev;
+        private Node<T> next;
+        public Node(T data) {
+            updateData(data);
+            updateNext(null);
+        }
+        public void updatePrev(Node<T> node) {
+            this.prev = node;
+        }
+        public void updateNext(Node<T> node) {
+            this.next = node;
+        }
+        public void updateData(T data) {
+            this.data = data;
+        }
+    }
+    //    public void insert(T data, T previousData) {
 //        Node<T> previousNode = findNode(previousData);
 //        if (previousNode == null) {
 //            throw new IllegalArgumentException("삽입하고자 하는 위치 존재하지 않음");
@@ -71,45 +138,7 @@ public class LinkedList<T> {
 //        currentNode.updateNext(currentNode.next.next);
 //        size--;
 //    }
-    public T shift () {
-        T result;
-        if (size == 0) {
-            throw new IllegalArgumentException("리스트 비어있음");
-        } else if (size == 1){
-            result = head.data;
-            head = null;
-            tail = null;
-            size--;
-            return result;
-        } else {
-            result = head.data;
-            head = head.next;
-            size--;
-            return result;
-        }
-    }
-    public T pop () {
-        T result;
-        if (size == 0) {
-            throw new IllegalArgumentException("리스트 비어있음");
-        } else if (size == 1){
-            result = tail.data;
-            head = null;
-            tail = null;
-            size--;
-            return result;
-        } else {
-            result = tail.data;
-            tail = tail.prev;
-            tail.next = null;
-            size--;
-            return result;
-        }
-    }
-    public boolean isEmpty () {
-        return size == 0;
-    }
-//    public Node<T> findNode(T data) {
+    //    public Node<T> findNode(T data) {
 //        if (size == 0) {
 //            throw new IllegalArgumentException("리스트 비어있음");
 //        }
@@ -121,40 +150,4 @@ public class LinkedList<T> {
 //
 //        return findNode;
 //    }
-
-    public void printAllNodeData() {
-        Node<T> node = head;
-        StringBuilder result = new StringBuilder();
-        while (node != null) {
-            result.append(node.getData()).append(" -> ");
-            node = node.next;
-        }
-        System.out.println(result.toString());
-    }
-
-    private static class Node<T> {
-        private T data;
-        private Node<T> prev;
-        private Node<T> next;
-
-        public Node(T data) {
-            updateData(data);
-            updateNext(null);
-        }
-
-        public void updatePrev(Node<T> node) {
-            this.prev = node;
-        }
-        public void updateNext(Node<T> node) {
-            this.next = node;
-        }
-
-        public void updateData(T data) {
-            this.data = data;
-        }
-
-        public T getData() {
-            return this.data;
-        }
-    }
 }

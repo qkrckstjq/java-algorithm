@@ -79,10 +79,11 @@ public class Main {
 //        linkedList.printAllNodeData();
 //------------------------------------------------------
         Tree<Integer> root = new Tree<>(1,1);
-        Tree.addChildren(root,2);
-        Tree.addChildren(root,6);
-        Tree.addChildren(root,62);
-        Tree.addChildren(root,72);
+        root.addChildren(2);
+        root.addChildren(6);
+        root.addChildren(62);
+        root.addChildren(72);
+
         Tree.addChildren(Tree.findDfs(root, 6), 51);
         Tree.addChildren(Tree.findDfs(root, 6), 511);
         Tree.addChildren(Tree.findDfs(root, 6), 5116);
@@ -90,6 +91,10 @@ public class Main {
         Tree.addChildren(Tree.findDfs(root, 16), 516);
         Tree.addChildren(Tree.findDfs(root, 516), 216);
         Tree.addChildren(Tree.findDfs(root, 216), 1123116);
-        Tree.printLevels(root);
+
+        Tree<Integer> bfs = Tree.findBfs(root, 216);
+        Tree<Integer> dfs = Tree.findDfs(root, 216);
+//        Tree.printLevels(root);
+
     }
 }
