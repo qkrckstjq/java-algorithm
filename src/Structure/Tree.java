@@ -105,6 +105,31 @@ public class Tree <T>{
         }
     }
 
+    public static <T> Tree<T> findLCA(Tree<T> root, T p, T q) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.data.equals(p) || root.data.equals(q)) {
+            return root;  // 현재 노드가 p 또는 q와 같은 경우, 현재 노드를 반환
+        }
+
+        Tree<T> commonAncestor = null;
+
+        for (Tree<T> child : root.childrens) {
+            Tree<T> result = findLCA(child, p, q);
+            if (result != null) {
+                if (commonAncestor != null) {
+                    return root;  // 이미 LCA를 찾은 경우, 현재 노드를 반환
+                }
+                commonAncestor = result;
+            }
+        }
+
+        return commonAncestor;  // LCA를 찾지 못한 경우, null 또는 LCA 반환
+    }
+
+
     public T getData () {
         return data;
     }

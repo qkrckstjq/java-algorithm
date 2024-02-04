@@ -2,6 +2,7 @@ package Structure;
 
 import ArraySort.InsertSort;
 import org.w3c.dom.Node;
+import java.util.LinkedList;
 
 import java.util.Arrays;
 public class Main {
@@ -92,9 +93,8 @@ public class Main {
         Tree.addChildren(Tree.findDfs(root, 516), 216);
         Tree.addChildren(Tree.findDfs(root, 216), 1123116);
 
-        Tree<Integer> bfs = Tree.findBfs(root, 216);
-        Tree<Integer> dfs = Tree.findDfs(root, 216);
+//        Tree<Integer> bfs = Tree.findBfs(root, 216);
+//        Tree<Integer> dfs = Tree.findDfs(root, 216);
 //        Tree.printLevels(root);
-
     }
 }
