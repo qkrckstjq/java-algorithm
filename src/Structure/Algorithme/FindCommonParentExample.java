@@ -15,6 +15,7 @@ public class FindCommonParentExample {
         }
 
         fp.printArray();
+        fp.hasCycle();
     }
 
 
