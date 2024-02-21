@@ -34,9 +34,7 @@ public class FindCommonParent {
         }
     }
     private boolean isConnected(int a, int b) {
-        int aParent = findParent(a);
-        int bParent = findParent(b);
-        return aParent == bParent;
+        return findParent(a) == findParent(b);
     }
     public void printArray() {
         for(Integer key : this.parentArray.keySet()) {
@@ -44,17 +42,7 @@ public class FindCommonParent {
         }
     }
     public boolean hasCycle() {
-        for (Integer child : parentArray.keySet()) {
-            int parent = findParent(child);
-            if (parent == child) continue; // 부모가 자기 자신인 경우를 건너뜁니다.
-
-            if (isConnected(parent, child)) {
-                System.out.println("사이클이 존재합니다.");
-                return true;
-            }
-        }
-        System.out.println("사이클이 존재하지 않습니다.");
-        return false;
+        return this.hasCycle;
     }
 
 }

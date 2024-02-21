@@ -29,6 +29,4 @@ public class UnionFind {
     public void printArr () {
         System.out.println(Arrays.toString(UNIONARR));
     }
-
-
 }
